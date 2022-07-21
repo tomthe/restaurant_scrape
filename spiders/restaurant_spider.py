@@ -26,13 +26,18 @@ class QuotesSpider(scrapy.Spider):
         #     }
 
         for restau in response.css("div.YHnoF"):
-            link = restau.css("a.Lwqic").get()
-            yield {
-                "restaurant_name":restau.css("a.Lwqic::text").getall(),
-                "n_reviews":restau.css("span.IiChw::text").get(),
-                "restaurant_url":restau.css("a.Lwqic::attr(href)").get(),
-                "rating":restau.css("svg::attr(aria-label)").get()
-            }
+            link = restau.css("a.Lwqic::attr(href)").get()
+            yield response.follow(link, callback=self.parse_one_restaurant)
         
         for a in response.css('.taLnk'):
             yield response.follow(a, callback=self.parse)
+
+    def parse_one_restaurant(self, response):
+        yield {
+            "restaurant_name":response.css("h1.HjBfq::text").getall(),
+            "n_reviews":response.css("span.AfQtZ::text").get(),
+             #"restaurant_url":response.css("a.Lwqic::attr(href)").get(),
+            "rating":response.css("span.ZDEqb::text").get(),
+            "reviews1_partial":response.css(".partial_entry").getall(),
+            "reviews1_title":response.css(".noQuotes").getall(),
+        }
