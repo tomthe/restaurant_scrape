@@ -11,10 +11,10 @@ class QuotesSpider(scrapy.Spider):
             #"https://www.tripadvisor.com/Restaurants-g187337-Frankfurt_Hesse.html",
             #"https://www.tripadvisor.com/Restaurants-g198613-Ostseebad_Kuhlungsborn_Mecklenburg_West_Pomerania.html"
             #"https://www.tripadvisor.com/Restaurants-g187399-Dresden_Saxony.html"
-            "https://www.tripadvisor.com/Restaurants-g187323-Berlin.html"
+            #"https://www.tripadvisor.com/Restaurants-g187323-Berlin.html"
             #"https://www.tripadvisor.com/Restaurants-g187331-Hamburg.html"
             #"https://www.tripadvisor.com/Restaurants-g187309-Munich_Upper_Bavaria_Bavaria.html"
-            #"https://www.tripadvisor.com/Restaurants-g187371-Cologne_North_Rhine_Westphalia.html"
+            "https://www.tripadvisor.com/Restaurants-g187371-Cologne_North_Rhine_Westphalia.html"
             #"https://www.tripadvisor.com/Restaurants-g190454-Vienna.html"
         ]
         for url in urls:
